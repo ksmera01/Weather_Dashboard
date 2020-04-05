@@ -167,7 +167,7 @@ $(document).ready(function () {
                     }
 
                     $("#5DayHeader").text("5-Day Forecast")
-                    forecastDiv.addClass("p-1 border border-dark");
+                    forecastDiv.addClass("p-4 border border-dark");
                     forecastDiv.append(createForecastDate);
                     forecastDiv.append(createForecastIcon);
                     forecastDiv.append(createForecastTemp);
