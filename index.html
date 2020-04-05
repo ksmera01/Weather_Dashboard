@@ -44,9 +44,8 @@
                 </form>
             </div>
 
-            <div class="card col-md-8 float-right">
-                <div class="card-body"></div>
-                <div>
+            <div class="col-md-8 float-right">
+                <div id="currWeatherBorder">
                     <h1 id="citySearched"></h1>
                     <p id="temperature"></p>
                     <p id="windSpeed"></p>
@@ -55,9 +54,13 @@
                 <div id="uvIndex"></div>
                 <br>
                 <br>
-                <h3>5 Day Forecast:</h3>
-                <div id="fiveDayForecast">
-
+                <div id="fiveDayForecast" class="row">
+                    <h3 id=5dayHeader></h3>
+                    <div id="day1Forecast"></div>
+                    <div id="day2Forecast"></div>
+                    <div id="day3Forecast"></div>
+                    <div id="day4Forecast"></div>
+                    <div id="day5Forecast"></div>
                 </div>
             </div>
     </section>
@@ -65,6 +68,7 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>

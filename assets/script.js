@@ -1,44 +1,65 @@
 $(document).ready(function () {
 
-    // var city = $("#cityInput").val();
-    var APIKey = "166a433c57516f51dfab1f7edaed8413"
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +
-        "Philadelphia" + "&appid=" + APIKey;
-
     $(".btn").on("click", function (event) {
         event.preventDefault()
+
+        var city = $("#cityInput").val();
+        var APIKey = "166a433c57516f51dfab1f7edaed8413"
+        var currentWeatherqueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +
+            city + "&appid=" + APIKey;
+        var forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey;
+
         $.ajax({
-            url: queryURL,
+            url: currentWeatherqueryURL,
             method: "GET"
         })
             .then(function (response) {
 
-                console.log(queryURL);
+                console.log(city);
+
+                console.log(currentWeatherqueryURL);
 
                 console.log(response);
 
-                // console.log(city);
+                var currentDate = moment().format('L');
 
                 var tempF = (response.main.temp - 273.15) * 1.80 + 32;
 
                 // Transfer content to HTML
-                $("#citySearched").text(response.name + " Weather Details");
+                $("#citySearched").text(response.name + " " + "(" + currentDate + ")");
                 $("#temperature").text("Temperature (F) " + tempF.toFixed(2));
-                $("#windSpeed").text("Wind Speed: " + response.wind.speed);
-                $("#humidity").text("Humidity: " + response.main.humidity);
+                $("#humidity").text("Humidity: " + response.main.humidity + "%");
+                $("#windSpeed").text("Wind Speed: " + response.wind.speed + " MPH");
+                $("#currWeatherBorder").addClass("p-4 border border-dark");
+
+                // var myInput = document.getElementById("cityInput").value;
+                // localStorage.setItem("cityInput", myInput);
+
+                // var myInput = document.getElementById("cityInput").value;
+                // var savedSearchItemsArray = [];
+                // savedSearchItemsArray.push(myInput);
+                // localStorage.setItem("cityInput", JSON.stringify(savedSearchItemsArray));
+
+
             })
 
-        // Current Weather API
-        // $.get({
-        //         url: "https://api.openweathermap.org/data/2.5/weather?q=Philadelphia,Pennsylvania&appid=166a433c57516f51dfab1f7edaed8413",
-        //         method: "GET"
-        //     }).then(function (response) {
-        //         var tempF = (response.main.temp - 273.15) * 1.80 + 32;
-        //         console.log(response);
-        //         console.log(tempF.toFixed(2)); //Temperature
-        //         console.log(response.main.humidity); //Humidity
-        //         console.log(response.wind.speed); //Wind Speed
-        // UV Index
+        $.ajax({
+            url: forecastQueryURL,
+            method: "GET"
+        })
+
+            .then(function (response) {
+
+                console.log(forecastQueryURL);
+
+                console.log(response.list);
+
+                var forecastResults = response.list;
+
+                console.log(forecastResults);
+
+            });
+
     });
 
     // UV Index API
@@ -50,12 +71,4 @@ $(document).ready(function () {
     //     console.log(response);
     // });
 
-    // $.get({
-    //     url: "https://api.openweathermap.org/data/2.5/forecast?q=Philadelphia,Pennsylvania&appid=1e8304ab4f6285fc646b9e6b504aad91",
-    //     method: "GET"
-    // }).then(function (response) {
-    //     console.log(response);
-    //     console.log(response.results);
-
-    // });
 });
