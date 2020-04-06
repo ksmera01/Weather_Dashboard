@@ -5,3 +5,15 @@
     font-size: 48px;
     font-family: 'Special Elite', cursive;
 }
+
+.badUV{
+    background-color: orangered;
+}
+
+.mediumUV{
+    background-color: yellow;
+}
+
+.goodUV{
+    background-color: green;
+}

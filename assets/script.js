@@ -79,13 +79,43 @@ $(document).ready(function () {
                 $("#currWeatherBorder").addClass("p-4 border border-dark");
                 $("#citySearched").append(createIcon);
 
-                // var myInput = document.getElementById("cityInput").value;
-                // localStorage.setItem("cityInput", myInput);
+                var uvLatitude = response.coord.lat;
+                var uvLongitude = response.coord.lon;
+                var uvQueryURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + uvLatitude + "&lon=" + uvLongitude;
 
-                // var myInput = document.getElementById("cityInput").value;
-                // var savedSearchItemsArray = [];
-                // savedSearchItemsArray.push(myInput);
-                // localStorage.setItem("cityInput", JSON.stringify(savedSearchItemsArray));
+                $.ajax({
+                    url: uvQueryURL,
+                    method: "GET"
+                }).then(function (response) {
+                    console.log(response.value);
+                    var uvIndex = response.value;
+                    $("#uvIndex").text("UV Index: " + uvIndex);
+
+                    if (uvIndex <= 2) {
+                        $("#uvIndex").addClass("goodUV");
+                    }
+                    else if (uvIndex > 2 && uvIndex <= 5) {
+                        $("#uvIndex").addClass("mediumUV");
+                    }
+                    else if (uvIndex > 5) {
+                        $("#uvIndex").addClass("badUV");
+                    }
+
+                });
+
+                function saveLocalStorage() {
+                    var savedSearchItemsArray = [];
+                    savedSearchItemsArray.push(city);
+                    localStorage.setItem("cityInput", JSON.stringify(savedSearchItemsArray));
+                }
+
+                saveLocalStorage();
+
+                var getSearchTerm = JSON.parse(localstorage.getItem("cityInput"));
+                var buttonDiv = $("<div>");
+                var createButton = $("<button>").text(getSearchTerm);
+                $("#searchTerms").append(buttondiv);
+                buttonDiv.prepend(createButton);
 
 
             })
@@ -180,15 +210,6 @@ $(document).ready(function () {
             });
 
     });
-
-    // UV Index API
-    // $.get({
-    //     url: "http://api.openweathermap.org/data/2.5/uvi?appid=1e8304ab4f6285fc646b9e6b504aad91&lat=39.9523&lon=-75.1638",
-    //     // http://api.openweathermap.org/data/2.5/uvi?appid={appid}&lat={lat}&lon={lon}
-    //     method: "GET"
-    // }).then(function (response) {
-    //     console.log(response);
-    // });
 
 
 });
