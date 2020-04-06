@@ -81,7 +81,7 @@ $(document).ready(function () {
 
                 var uvLatitude = response.coord.lat;
                 var uvLongitude = response.coord.lon;
-                var uvQueryURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + uvLatitude + "&lon=" + uvLongitude;
+                var uvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + uvLatitude + "&lon=" + uvLongitude;
 
                 $.ajax({
                     url: uvQueryURL,
