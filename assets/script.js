@@ -29,16 +29,16 @@ $(document).ready(function () {
 
                 console.log(weatherIconCurrent);
 
-                var clearSky = ("http://openweathermap.org/img/wn/01d.png");
-                var fewClouds = ("http://openweathermap.org/img/wn/02d.png");
-                var scatteredClouds = ("http://openweathermap.org/img/wn/03d.png");
-                var overcastClouds = ("http://openweathermap.org/img/wn/04d.png")
-                var brokenClouds = ("http://openweathermap.org/img/wn/04d.png");
-                var showerRain = ("http://openweathermap.org/img/wn/09d.png");
-                var rain = ("http://openweathermap.org/img/wn/10d.png");
-                var thunderstorm = ("http://openweathermap.org/img/wn/11d.png");
-                var snow = ("http://openweathermap.org/img/wn/13d.png");
-                var mist = ("http://openweathermap.org/img/wn/50d.png");
+                var clearSky = ("https://openweathermap.org/img/wn/01d.png");
+                var fewClouds = ("https://openweathermap.org/img/wn/02d.png");
+                var scatteredClouds = ("https://openweathermap.org/img/wn/03d.png");
+                var overcastClouds = ("https://openweathermap.org/img/wn/04d.png")
+                var brokenClouds = ("https://openweathermap.org/img/wn/04d.png");
+                var showerRain = ("https://openweathermap.org/img/wn/09d.png");
+                var rain = ("https://openweathermap.org/img/wn/10d.png");
+                var thunderstorm = ("https://openweathermap.org/img/wn/11d.png");
+                var snow = ("https://openweathermap.org/img/wn/13d.png");
+                var mist = ("https://openweathermap.org/img/wn/50d.png");
 
                 if (weatherIconCurrent === "scattered clouds") {
                     var createIcon = $("<img>").attr("src", scatteredClouds);
@@ -154,16 +154,16 @@ $(document).ready(function () {
 
                     console.log(weatherIconForecast);
 
-                    var forecastClearSky = ("http://openweathermap.org/img/wn/01d.png");
-                    var forecastFewClouds = ("http://openweathermap.org/img/wn/02d.png");
-                    var forecastScatteredClouds = ("http://openweathermap.org/img/wn/03d.png");
-                    var forecastOvercastClouds = ("http://openweathermap.org/img/wn/04d.png")
-                    var forecastBrokenClouds = ("http://openweathermap.org/img/wn/04d.png");
-                    var forecastShowerRain = ("http://openweathermap.org/img/wn/09d.png");
-                    var forecastRain = ("http://openweathermap.org/img/wn/10d.png");
-                    var forecastThunderstorm = ("http://openweathermap.org/img/wn/11d.png");
-                    var forecastSnow = ("http://openweathermap.org/img/wn/13d.png");
-                    var forecastMist = ("http://openweathermap.org/img/wn/50d.png");
+                    var forecastClearSky = ("https://openweathermap.org/img/wn/01d.png");
+                    var forecastFewClouds = ("https://openweathermap.org/img/wn/02d.png");
+                    var forecastScatteredClouds = ("https://openweathermap.org/img/wn/03d.png");
+                    var forecastOvercastClouds = ("https://openweathermap.org/img/wn/04d.png")
+                    var forecastBrokenClouds = ("https://openweathermap.org/img/wn/04d.png");
+                    var forecastShowerRain = ("https://openweathermap.org/img/wn/09d.png");
+                    var forecastRain = ("https://openweathermap.org/img/wn/10d.png");
+                    var forecastThunderstorm = ("https://openweathermap.org/img/wn/11d.png");
+                    var forecastSnow = ("https://openweathermap.org/img/wn/13d.png");
+                    var forecastMist = ("https://openweathermap.org/img/wn/50d.png");
 
                     if (weatherIconForecast === "scattered clouds") {
                         var createForecastIcon = $("<img>").attr("src", forecastScatteredClouds);
